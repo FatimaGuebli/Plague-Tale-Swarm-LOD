@@ -62,11 +62,11 @@ The project uses `MinMaxScaler` and `KMeans` from `scikit-learn`.
 
 Instead of random initialization, the clustering uses manual centroids designed around rendering logic:
 
-| Cluster | Initial Centroid | Interpretation |
-|---|---|---|
-| `LOD_0_HERO` | `[0.0, 1.0, 0.0, 1.0]` | Close, in-view, not occluded, bright |
-| `LOD_1_SWARM` | `[0.5, 1.0, 0.5, 0.5]` | Mid-range, in-view, partly occluded, dim |
-| `LOD_2_CULL` | `[1.0, 0.0, 1.0, 0.0]` | Far, out-of-view, occluded, dark |
+| Cluster      | Initial Centroid       | Interpretation                           |
+|--------------|------------------------|------------------------------------------|
+| `LOD_0_HERO` | `[0.0, 1.0, 0.0, 1.0]` | Close, in-view, not occluded, bright     |
+| `LOD_1_SWARM`| `[0.5, 1.0, 0.5, 0.5]` | Mid-range, in-view, partly occluded, dim |
+| `LOD_2_CULL` | `[1.0, 0.0, 1.0, 0.0]` | Far, out-of-view, occluded, dark         |
 
 This gives the optimizer a more intentional starting point than standard random K-Means initialization.
 
@@ -74,11 +74,11 @@ This gives the optimizer a more intentional starting point than standard random 
 
 To simulate rendering cost, the project assigns an estimated polygon budget to each class:
 
-| LOD Class | Polygon Budget per Rat |
-|---|---|
-| `LOD_0_HERO` | `5,000` |
-| `LOD_1_SWARM` | `1,000` |
-| `LOD_2_CULL` | `50` |
+| LOD Class     | Polygon Budget per Rat |
+|---------------|------------------------|
+| `LOD_0_HERO`  | `5,000`                |
+| `LOD_1_SWARM` | `1,000`                |
+| `LOD_2_CULL`  | `50`                   |
 
 The optimizer then compares:
 
